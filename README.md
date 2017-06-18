@@ -142,6 +142,20 @@ Other than that, sensible and meaningful contributions are very welcome!
 
 ### Building on Linux:
 
+Make sure Oracle Java JDK is set correctly.
+
+  	PATH=/opt/jdk1.8.0_131/bin/:$PATH
+  	export PATH
+	java -version
+	
+
+java version "1.8.0_131"
+
+Java(TM) SE Runtime Environment (build 1.8.0_131-b11)
+
+Java HotSpot(TM) 64-Bit Server VM (build 25.131-b11, mixed mode)
+
+
   Run:
 
 	make
@@ -158,6 +172,20 @@ Then, run:
 	PLATFORM=Arm make
 
 ### Creating OpenNI2 packages
+
+Building Documentation with Java 8 fails: https://github.com/OpenNI/OpenNI2/issues/87
+
+### Workaround
+
+In Runme.py, replace
+
+    cmd = [javaDocExe, '-d', 'java']
+
+with
+
+    cmd = [javaDocExe, '-d', 'java', '-Xdoclint:none']
+
+then
 
   - Go into the directory `Packaging`
   - Run:
